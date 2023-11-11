@@ -16,8 +16,29 @@ def get_pressed_button() -> str | None:
 
 
 class Command():
+
     def __init__(self):
         pass
 
-    def execute(self, JoystickEnum):
+    def MoveLeft(msg):
+        print("You move left,", msg)
+
+    def MoveRight(msg):
+        print("You move right,", msg)
+
+    Mapping = {
+        JoystickEnum.BUTTON_A: MoveLeft,
+        JoystickEnum.BUTTON_D: MoveRight,
+    }
+
+    def Remap(self):
         pass
+
+    def execute(self, b: JoystickEnum):
+        return self.Mapping.get(b)
+
+
+c = Command()
+b = get_pressed_button()
+if b:
+    c.execute(b)(msg="You fall in a pit and die !")
