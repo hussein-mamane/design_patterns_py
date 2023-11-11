@@ -14,31 +14,48 @@ def get_pressed_button() -> str | None:
     return b if b == JoystickEnum.BUTTON_A\
         or b == JoystickEnum.BUTTON_D else None
 
+# Executed movements
 
-class Command():
+
+def MoveLeft(msg: str):
+    print("You move left,", msg)
+
+
+def MoveRight(msg):
+    print("You move right,", msg)
+
+# logic + data for handling input
+
+
+class CommandHandler:
 
     def __init__(self):
         pass
 
-    def MoveLeft(msg):
-        print("You move left,", msg)
-
-    def MoveRight(msg):
-        print("You move right,", msg)
-
+    # remapping buttons
     Mapping = {
         JoystickEnum.BUTTON_A: MoveLeft,
         JoystickEnum.BUTTON_D: MoveRight,
     }
 
     def Remap(self):
-        pass
+        b = input(" 'a' or  'd' for moving left:\n")
+        if b == JoystickEnum.BUTTON_A:
+            self.Mapping[b] = MoveLeft
+            self.Mapping[JoystickEnum.BUTTON_D] = MoveRight
+        elif b == JoystickEnum.BUTTON_D:
+            self.Mapping[b] = MoveLeft
+            self.Mapping[JoystickEnum.BUTTON_A] = MoveRight
+        else:
+            print("press 'a' or 'd' only")
 
     def execute(self, b: JoystickEnum):
         return self.Mapping.get(b)
 
 
-c = Command()
+c = CommandHandler()
+c.Remap()
+
 b = get_pressed_button()
 if b:
-    c.execute(b)(msg="You fall in a pit and die !")
+    c.execute(b)("You fall in a pit and Die !")
