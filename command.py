@@ -53,9 +53,12 @@ class CommandHandler:
         return self.Mapping.get(b)
 
 
+# test for this file standalone execution,it works
+"""
 c = CommandHandler()
 c.Remap()
 
 b = get_pressed_button()
 if b:
     c.execute(b)("You fall in a pit and Die !")
+"""
