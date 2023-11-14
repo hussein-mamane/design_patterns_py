@@ -15,8 +15,8 @@ class BoardActor:
         self._pos_y = pos_y
         self._char = char
         self.steps = 0
-    # I know I can use one method and test on arguments but I think separation
-    # in this case make it easier and costs nothing
+    # I know I can use one method and test on arguments or some other way but I think separation
+    # in this case makes it easier and costs nothing
 
     def adjust_left(self):
         self._pos_x -= self.steps
