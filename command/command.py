@@ -1,4 +1,7 @@
 from enum import Enum
+# Simple implementation of the command pattern in one file
+# Not in a very conventional way
+# uncomment from line 60 to test we can effectively remap buttons
 
 
 # joystick where you can press 2 buttons, enumeration
