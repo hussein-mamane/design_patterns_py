@@ -46,7 +46,6 @@ class Controller():
     def handle_pressed(self):
         p = get_pressed_button()
         if p:
-            # we can use a map here too, or
             if p == JoystickEnum.BUTTON_A:
                 return self.button_A
             if p == JoystickEnum.BUTTON_W:
