@@ -29,6 +29,7 @@ class Observer:
                 if self.success_dict['nb_jumps'] == 5:
                     print(
                         "Success: \U0001F998Kangaroo!\U0001F998 : You jumped 5 times!\n")
+    # Maybe use another class to manage savegames and loadgames, to separate concerns
 
     def reset_progress(self):
         self.success_dict['nb_grenade_victims'] = 0
